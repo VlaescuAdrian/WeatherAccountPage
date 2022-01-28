@@ -1,18 +1,12 @@
-# Salesforce DX Project: Next Steps
+# Weather Account Page
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
-
-## How Do You Plan to Deploy Your Changes?
-
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+    * Created a simply lightning web component showed on the Account record page. The component works closely with the BillingAddress field of the Account.
+    * Every time an account record page is loaded you will see 5 text area boxes with the current address of the account. 
+    * The last text area will show the current weather based on the BillingLatitude and BillingLongitude of that Account. The value was received from calling an external api from openweather website. The key was generated on their site and I've put it hardcoded in the callout url. I've also  gave authorization for thei site URL in Salesforce. 
+    * Every time you want to change the values on the component with another address and click the Change Button address, the weather will change and it will also update the BillingAddress address of the current account. If you change the BillingAddress of the account, the component will not show the current weather updated. The page needs to be refreshed to show the updated one. 
+    * I've also let some console.logs in the code to see some responses from the API or the fields retreived from the current account.
+    * There is an apex class with 2 methods that are querying the current account and changes the Weather field on the account.
+    * There is a simple apex class that initiate an http call to a specific url that is being passed as a parameter.
+    * As a last thing, a batch job class was created that updates the weather field based on the current latitude and longitude of the account.
+    * In the scheduler, you will see the apex code that was run in the Develope Console to start the scheduled job that will run every hour. 
+    * For weather, I've created a custom field as a text area that is populated with what we get from the Api response.
