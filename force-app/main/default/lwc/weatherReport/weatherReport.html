@@ -1,0 +1,26 @@
+<template>
+    <lightning-record-view-form record-id={recordId} object-api-name="Account">
+    <div class="slds-box slds-theme_default">
+        <div class="slds-p-horizontal_medium lgc-bg">
+            <lightning-textarea value={street} onchange={handle_street_change} placeholder="Street" rows="7"></lightning-textarea>
+        </div>  
+        <div class="slds-p-horizontal_medium lgc-bg">
+            <lightning-textarea value={city} onchange={handle_city_change} placeholder="City" rows="7"></lightning-textarea>
+        </div>  
+        <div class="slds-p-horizontal_medium lgc-bg">
+            <lightning-textarea value={state} onchange={handle_state_change} placeholder="State" rows="7"></lightning-textarea>
+        </div>  
+        <div class="slds-p-horizontal_medium lgc-bg">
+            <lightning-textarea value={postalCode} onchange={handle_code_change} placeholder="Postal Code" rows="7"></lightning-textarea>
+        </div>  
+        <div class="slds-p-horizontal_medium lgc-bg">
+            <lightning-textarea value={country} onchange={handle_country_change} placeholder="Country" rows="7"></lightning-textarea>
+        </div> 
+        <lightning-button class="slds-p-around_medium lgc-bg" variant="brand" label="Change address" title="Change address" onclick={handleClick}></lightning-button>
+        <div class="slds-p-around_medium lgc-bg">
+            <p>The weather at this moment is:</p>
+            <lightning-textarea readonly value={weather} rows="7"></lightning-textarea>
+        </div>   
+    </div>
+</lightning-record-view-form>
+</template> 
